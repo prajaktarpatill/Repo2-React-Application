@@ -9,7 +9,7 @@ import RegistrationForm from './components/RegistrationForm';
 import UserLayout from './components/UserLayout';
 import Profile from './components/Profile';
 import { createContext} from "react";
-import MyQuotes from './components/MyQuotes';
+import MyQuotes from "./components/MyQuotes";
 
 
 export const AuthContext = createContext();
@@ -20,9 +20,7 @@ function getUserFromSessionStorage() {
 	return user;
 }
 
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
-//import './App.css'
+
 
 function App() {
   const [user, setUser] = useState(getUserFromSessionStorage());
@@ -37,8 +35,8 @@ function App() {
 					<Route path="/register" element={<RegistrationForm />} />
 					{/* /user/url */}
 					<Route path="/user" element={<UserLayout />}>
-          <Route path="edit" element={<Profile />}/>
-          <Route path="quotes" element={<MyQuotes />}/>
+             <Route path="edit" element={<Profile />}/>
+             <Route path="quote" element={<MyQuotes />}/>
 
 						
 						

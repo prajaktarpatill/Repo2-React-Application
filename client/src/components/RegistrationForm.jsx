@@ -97,7 +97,7 @@ const RegistrationForm = () => {
 					onChange={handleInputFieldChange}
 				/>
 			</div>
-           <p>Dont have Account? <Link className="mx-3 col" to="/login">login here</Link></p> 
+          
 					
 				
 
@@ -111,6 +111,8 @@ const RegistrationForm = () => {
 				>
 					Register
 				</button>
+                <p>Dont have Account? <Link className="mx-3 col" to="/login">login here</Link></p> 
+					
 				
 			</div>
 		</div>

@@ -19,12 +19,12 @@ function Navbar() {
 				<div className="collapse navbar-collapse" id="navbarNav">
 					<ul className="navbar-nav">
 						<li className="nav-item">
-							<Link className="nav-link" to="/user/categories">
+							<Link className="nav-link" to="/user/quote">
 								My Quotes
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" to="/user/books">
+							<Link className="nav-link" to="/user/edit">
 								Profile
 							</Link>
 						</li>
