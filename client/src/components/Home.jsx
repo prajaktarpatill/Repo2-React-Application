@@ -3,7 +3,7 @@ import { Link } from "react-router";
 const Home = () => {
     return (
     <div>
-        <h1>Movies Review App - Home</h1>
+        <h1>Awesome Quotes - Home</h1>
         <p>
         Hello
         </p>
