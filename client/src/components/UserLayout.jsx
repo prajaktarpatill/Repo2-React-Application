@@ -1,7 +1,17 @@
+import { Outlet } from "react-router";
+import Navbar from "./Navbar";
+import { AuthContext } from "../App";
+import { useContext } from "react";
+
 const UserLayout = () => {
-    return (
-        <div>Hello</div>
-    )
-}
+	const { user } = useContext(AuthContext);
+	return (
+		<div>
+			<Navbar />
+			<p className="bg-warning p-2">Hello, {user?.firstName}!</p>
+			<Outlet />
+		</div>
+	);
+};
 
 export default UserLayout;

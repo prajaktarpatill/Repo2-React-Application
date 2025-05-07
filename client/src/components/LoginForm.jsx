@@ -1,24 +1,34 @@
-import { useState } from "react";
+import { useContext,useState } from "react";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router";
+import { userSignIn } from "../services/users";
 
-
+import { AuthContext } from "../App";
 
 
 const LoginForm = () => {
 	const [email, setEmail] = useState("");
-	const [passwd, setPasswd] = useState("");
+	const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const { setUser } = useContext(AuthContext);
+
+
+
 
 
     const handleEmailChange = (e) => {
 		setEmail(e.target.value);
 	};
-	const handlePasswdChange = (e) => setPasswd(e.target.value);
+	const handlePasswdChange = (e) => setPassword(e.target.value);
 
-    const handleSignInClick = (e) => {
+    const handleSignInClick =  async (e) => {
 		try {
 			// validate user login using REST service
+			const user = await userSignIn(email, password);
+			// store user object + jwt token (in sessionStorage)
+			sessionStorage.setItem("user", JSON.stringify(user));
+			// update the context
+			setUser(user);
 			// after successful login, go to user dashboard
 			navigate("/user");
 		} catch (err) {
@@ -44,7 +54,7 @@ return(
 				<label className="form-label">Password:</label>
 				<input
 					className="form-control"
-					name="passwd"
+					name="password"
 					type="password"
 					onChange={handlePasswdChange}
 				/>

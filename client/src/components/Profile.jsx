@@ -5,42 +5,31 @@ import { userSignUp } from "../services/users";
 
 
 const RegistrationForm = () => {
-	const [info, setInfo] = useState({
+	const [inNo, setInfo] = useState({
 		firstName: "",
 		lastName: "",
 		email: "",
-		password: "",
+		passwd: "",
 		phoneno: "",
-        address: "",
-        
+        addr: "",
+
 	});
 
-    const navigate = useNavigate();
+	const navigate = useNavigate();
 	const handleInputFieldChange = (e) =>
 		setInfo({ ...info, [e.target.name]: e.target.value });
 
-	const handleSignUpClick = async (e) => {
-		try {
-			// register user using REST api
-			const user = await userSignUp(
-				info.firstName,
-				info.lastName,
-				info.email,
-				info.password,
-				info.phoneno,
-                info.address
-			);
-			toast.success("User registered with id: " + user.id);
-			// then go to login page
-			navigate("/login");
-		} catch (err) {
-			toast.error(err.message);
-		}
+	const handleSaveClick = (e) => {
+		// register user using REST api
+
+		// then go to login page
+		//navigate("/login");
 	};
+
 	return (
 		<div className="col border border-2 shadow p-5 m-3 w-50">
 			<div className="mb-3 text-center">
-				<h2>Registration Form</h2>
+				<h2>My Profile</h2>
 			</div>
 			<div className="mb-3">
 				<label className="form-label">First Name:</label>
@@ -73,7 +62,7 @@ const RegistrationForm = () => {
 				<label className="form-label">Password:</label>
 				<input
 					className="form-control"
-					name="password"
+					name="passwd"
 					type="password"
 					onChange={handleInputFieldChange}
 				/>
@@ -97,7 +86,7 @@ const RegistrationForm = () => {
 					onChange={handleInputFieldChange}
 				/>
 			</div>
-           <p>Dont have Account? <Link className="mx-3 col" to="/login">login here</Link></p> 
+           <p>Dont have Account? <Link className="mx-3 col" to="/login">Save</Link></p> 
 					
 				
 
